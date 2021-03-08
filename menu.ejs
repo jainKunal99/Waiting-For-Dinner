@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Menu</title>
+</head>
+<body>
+    <h1>This is menu Page!</h1>
+    <% dish.forEach(function(dish) {%>
+        <div>
+            <h3><%= dish.name%></h3>
+            <div>
+                <img src="<%= dish.image%>"> 
+            </div>
+            <h4>Rs.<%= dish.price%></h4>
+            <h4>Liked By <%= dish.likes %>Customers</h4>
+        </div>
+    <% })%>
+
+</body>
+</html>

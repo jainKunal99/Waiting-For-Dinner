@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Manager</title>
+    <link rel="stylesheet" href="/css/manager.css">
+    <link rel="stylesheet" href="/css/background.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="/chart.js"></script>
+    <link rel="shortcut icon" href="/images/logo/Final_Log-1.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/header.css">
+</head>
+
+
+<body>
+<nav class=" navbar navbar-dark bg-dark">
+    <a class="navbar-brand brandText" href="/">
+        <img class="brandICO" src="/images/logo/Final_Log-0.png">
+        <span> Waiting For Dinner?&nbsp&nbsp</span>
+    </a>
+    <ul class="navbar-nav mr-auto flex-row">
+      <li class="nav-item active">
+        <a class="nav-link px-2" href="/manager/stats">Statistics <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link px-2" href="/manager/Inventory">Inventory</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link px-2" href='/manager/bookings'>Bookings</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link px-2" href='/manager/Menu'>Menu</a>
+    </li>
+      </ul>
+    <span>
+        <form action="/logout?_method=DELETE" method="POST">
+            <button type="submit" class="btnx">LOG OUT</button>
+        </form>
+    </span>
+    <span class="Navheader"><strong>Welcome <%= name%></strong></span>
+</nav>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-4">
+                <h3 class="heading"><%= type %></h3>
+            </div>
+            <div class="col-8">
+                <form action="/manager/stats" method="POST">
+                    <div class="row">
+                        <div class="col-4">
+                            <select name="type" id="duration">
+                                <option value="years">Year</option>
+                                <option value="months">Month</option>
+                                <option value="days">Days</option>0
+                            </select>
+                        </div>
+                        <div class="col-4">
+                            <button type="submit" class="btnx">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row stats">
+
+            <div class="col-md-6">
+
+                <div id="table">
+                    <div class="row">
+                        <span class="rowItem1-heading">Period</span>
+                        <span class="rowItem2-heading sale">Sales</span>
+                        <span class="rowItem2-heading cost">Expenses</span>
+                        <span class="rowItem2-heading profit">Profits</span>
+                    </div>
+                    <%const monthNames = ["January", "February", "March", "April", "May", "June",
+                    "July", "August", "September", "October", "November", "December"
+                  ]; %>
+                    <% var avg=0; stats.forEach((stat)=>{ avg+= stat.sales - stat.cost;
+                        var displayName; 
+                        if(type=='Day')
+                        {
+                            displayName = (stat.day) + '-' + (stat.month+1) + '-' + (stat.year);
+                        }
+                        else
+                        {
+                            displayName = stat._id;
+                        }
+                        if(type=='Month')
+                            displayName = monthNames[displayName]; %>
+                    <div class="row">
+                        <span class="rowItem1"><%= displayName %></span>
+                        <span class="rowItem2 sales"><%= stat.sales %></span>
+                        <span class="rowItem2 costs"><%= stat.cost %></span>
+                        <span class="rowItem2 profits"><%= stat.sales - stat.cost %></span>
+
+                    </div>
+                    <%}); %>
+                    <h5>Average Profit: <%= Math.round((avg/stats.length)*100)/100 %></h5>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="chart_div_profits"></div>
+            </div>
+            <div class="col-md-6">
+                <div id="chart_div_cost"></div>
+            </div>
+            <div class="col-md-6">
+                <div id="chart_div_sales"></div>
+            </div>
+        </div>
+    </div>
+    </body>
+
+</html>

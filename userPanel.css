@@ -1,0 +1,30 @@
+body{
+    background-color: lightgoldenrodyellow !important;
+}
+.container{
+    min-height: 76vh;
+
+}
+*{
+    overflow-X:hidden;
+}
+.order{
+    border: 2px solid red;
+    border-radius: 2%;
+    margin: 5% 3%;
+    padding: 3%;
+    background-color: rgba(1, 137, 137,0.8) ;
+    color: #ffffff;
+}
+.order:hover{
+    border: 3px solid red;
+    margin: 0.25% 0.75%;
+}
+
+.img{
+    width: 100%;
+    padding: 5% 25%;
+}
+a, a:hover{
+    text-decoration: none !important;
+}

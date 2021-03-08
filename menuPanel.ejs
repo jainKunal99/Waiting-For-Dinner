@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Manager</title>
+    <link rel="stylesheet" href="/css/inventory.css">
+    <link rel="stylesheet" href="/css/background.css">
+    <link rel="shortcut icon" href="/images/logo/Final_Log-1.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/header.css">
+</head>
+
+
+<body>
+    <nav class=" navbar navbar-dark bg-dark">
+        <a class="navbar-brand brandText" href="/">
+            <img class="brandICO" src="/images/logo/Final_Log-0.png">
+            <span> Waiting For Dinner?&nbsp&nbsp</span>
+        </a>
+        <ul class="navbar-nav mr-auto flex-row">
+            <li class="nav-item">
+                <a class="nav-link px-2" href="/manager/stats">Statistics</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link px-2" href="/manager/Inventory">Inventory</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link px-2" href='/manager/bookings'>Bookings</a>
+            </li>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link px-2" href='/manager/Menu'>Menu<span class="sr-only">(current)</span></a>
+            </li>
+
+        </ul>
+        <span>
+            <form action="/logout?_method=DELETE" method="POST">
+                <button type="submit" class="btnx">LOG OUT</button>
+            </form>
+        </span>
+        <span class="Navheader"><strong>Welcome <%= name%></strong></span>
+    </nav>
+
+    <%var imgSrc = { true: "/images/veg.jpg", false: "/images/nonveg.jpg" };%>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <form action="/manager/Menu" method="POST">
+                    <div class="row">
+                        <% dishes.forEach((dish)=>{ %>
+                        <div id="<%= dish._id %>" class="col-sm-6">
+                            <div class="item itemH">
+                                <h4>Name: <%= dish.name %> <img class="dot right" src="<%=imgSrc[dish.isVegetarian]%>"alt=""> </h4>
+                                <h4>Cuisine: <%= dish.cuisine %></h4>
+
+                                <h4>Price:</h4>
+                                <input class="alterQty ipBox" type="number" min="0" value="<%=dish.price%>"
+                                    name="<%= dish._id %>">
+                                    <hr id="hr">
+                                <div class="flexi">
+                                    <img class="dishImage" src="<%=dish.image%>" alt="">
+                                </div>
+                                <div class="btn-holder">
+                                    <a class="btn-red" href="/manager/menu/<%=dish._id %>">DELETE</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <% }); %>
+                        <div class="col-12">
+                            <div class="foot item">
+
+                                <div>
+                                    <input type="submit" class="btnx btnxs" value="Submit">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-md-4">
+                <div class="item">
+                    <form action="/manager/menu/new" method="POST">
+                        <h3>NEW DISH!</h3>
+                        <h4>Name:</h4>
+                        <input class="numBox ipBox" type="text" name="name" id="name">
+                        <h4>Price:</h4>
+                        <input class="numBox ipBox" value="10" min="1" type="Number" name="price">
+                        <h4>Cusine:</h4>
+                        <Select class="select" name="cuisine">
+                            <option value="Punjabi">Punjabi</option>
+                            <option value="Chaat">Chaat</option>
+                            <option value="snacks">snacks</option>
+                            <option value="FastFood">FastFood</option>
+                            <option value="Drinks">Drinks</option>
+                            <option value="IceCream">IceCream</option>
+                        </Select>
+                        <div class="wide"><input type="radio" name="isVegetarian" value="true"> <img class="dot"
+                                src="<%=imgSrc.true%>" alt=""></div>
+                        <div class="wide"><input type="radio" name="isVegetarian" value="false"> <img class="dot"
+                                src="<%=imgSrc.false%>" alt=""></div>
+                        <h4>Image:</h4>
+                        <input class="numBox ipBox" type="text" name="image">
+                        <br><br>
+                        <input id="newBtn" class="btnx" value="submit" type="submit">
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

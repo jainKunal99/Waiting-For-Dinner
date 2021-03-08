@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WFD? Loign</title>
+    <link rel="shortcut icon" href="/images/logo/Final_Log-1.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/header.css">
+
+
+    <link rel="stylesheet" type="text/css" href="/css/flexboxgrid.css">
+    <link rel="stylesheet" type="text/css" href="/css/landing1.css">
+    <script src="https://use.fontawesome.com/2b80ffe233.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/landing4.css">
+
+</head>
+<body>
+        <nav class=" navbar Navheader navbar-dark bg-dark py-0">
+                <a class="navbar-brand brandText" href="##">
+                    <img class="brandICO" src="/images/logo/Final_Log-0.png">
+                   <span> Waiting For Dinner?</span>
+                </a>
+                <span class="justify-right">Welcome Existing User!</span>
+            </nav>
+
+            <div class="col-lg-12">
+                <img class="loginImage" src="/images/login.png" alt="Login-Cover">
+            </div>
+            <div class="col-xs-10 col-sm-8 col-md-6 col-lg-6  header_div5">
+                <div class="wrapper">
+                    <div class="errorMess">
+                    <% if(messages.error) { %>
+                        <%= messages.error %>
+                    <% } %>
+                    </div>
+                    <div class="container">                                 
+                        <form action="/login" method="POST">
+                            <div class="login-form">
+                                <input type="email" placeholder="Email" class="inputLogin" name="email" id="email" required><br />
+                                <input type="password" placeholder="Password" class="inputLogin" name="password" id="password" required><br />
+                                <button class="btn" type="submit">LOG IN</button>
+                                <span><a href="#">I forgot my username or password.</a></span>
+
+                                <a href="/register">Register</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>    
+            <footer>
+                <div class="row">
+                    
+                    <div class="col-sm-0 col-md-1"></div>
+        
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 footI">
+                            <a href="#"><i class="fa fa-facebook icon footICO" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-twitter icon footICO" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-instagram icon footICO" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-google-plus icon footICO" aria-hidden="true"></i></a>
+                    </div> 
+        
+        
+                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 contactFoot">
+                         
+                        <div class="foot-contact-info">
+                            <ul>
+                                <li>1, XYZ Street, Bangalore,India</li>
+                                <li>+91-1295884665</li>
+                            </ul>            
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 contactFoot">
+                    
+                            <div class="foot-contact-info">
+                                     <ul>
+                                         <li>support@whatsfordinner.com</li>
+                                     </ul>            
+                            </div>
+                        </div>
+                    <div class="col-sm-0 col-md-1"></div>    
+                </div>
+         </footer>
+        
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+.booking{
+    border: 2px solid rgb(1,137,137);
+    max-height: 500px;
+    color: rgb(1, 137, 137);
+    border-radius: 5%;
+    margin: 4% 8%;
+    padding: 5%;
+    font-size: 1.075rem;
+    font-weight: 500;
+    background-color: lightgoldenrodyellow;
+}
+form{
+    display: inline;
+}
+#hr{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 0%;
+    border-top: 1.5px solid rgb(1, 137, 137);
+    color: rgb(1, 137, 137);
+}
+/* Kunal  */
+.cancelBooking{
+
+    align-self: center;
+    background: red;
+    font-weight: bold;
+    color: white;
+    border: 1px solid black;
+    border-radius: 10%;
+}
+
+.cancelBooking:hover{
+
+    border: 3px solid #018989;
+
+
+}
+
+.cancellation{
+
+    text-align: center;
+}

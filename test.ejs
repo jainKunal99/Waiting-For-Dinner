@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="/css/flexboxgrid.css">
+    <link rel="stylesheet" type="text/css" href="/css/checkout.css">
+    <link rel="stylesheet" type="text/css" href="/css/header.css">
+    <link rel="stylesheet" type="text/css" href="/css/landing1.css">
+
+    
+</head>
+<body>
+
+    <nav class=" navbar Navheader navbar-dark bg-dark py-0">
+        <a class="navbar-brand brandText" href="##">
+            <img class="brandICO" src="/images/logo/Final_Log-0.png">
+            <span> Waiting For Dinner?</span>
+        </a>
+        <span>
+            <form action="/logout?_method=DELETE" method="POST">
+                <button type="submit" class="btnx">LOG OUT</button>
+            </form>
+        </span>
+        <span class="justify-right"><strong>Welcome <%= customerName%></strong></span>
+    </nav>
+    <br>
+    <br>
+    <div id="invoiceDiv">
+    <h1 align="center" ><strong>Order Detail's</strong></h1>
+        <div  id="detailsDiv">
+            <h4><%= customerName %></h4>
+            <h4><%= customerEmail %></h4>
+            <h4><%= orderID %></h4>
+            <h4>Delivery</h4>
+            <h4><%= dateTimeString %></h4>
+        </div>
+        <div id="orderDiv">
+            <div class="row">
+                <span class="rowItem1-heading">Item</span>
+                <span class="rowItem2-heading">Price</span>
+                <span class="rowItem3-heading">Quantity</span>
+                <span class="rowItem4-heading">Total</span>
+            </div>            
+            <% for(var i = 0; i < arr1.length; ++i) { %>
+                <div class="row">
+                    <span class="rowItem1"><%= arr1[i] %></span>
+                    <span class="rowItem2"><%= arr2[i] %></span>
+                    <span class="rowItem3"><%= arr3[i] %></span>
+                    <span class="rowItem4"><%= arr4[i] %></span>
+                </div>
+            <% } %>  
+        </div>   
+        <div class="total rowItem3">
+        <span><h4><strong>Grand Total :- <%= grandTotal %></strong></h4></span> 
+        </div> 
+
+        <div id="message">
+            <strong>'Your Order has been successfully placed'</strong>
+        </div>
+    </div>
+    
+</div>>
+    
+  
+</body>
+</html>

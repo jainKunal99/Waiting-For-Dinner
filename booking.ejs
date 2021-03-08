@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chef Panel</title>
+    <script src="https://kit.fontawesome.com/57a23a503a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/css/flexboxgrid.css">
+    <link rel="stylesheet" type="text/css" href="/css/booking.css">
+    <script src="booking.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <%- include('head') %>
+        </div>
+    </div>
+    <!--Body Begins-->
+    <div class="row booking">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 layout">
+            <div class="row aligned">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><img src="/images/dinner.png" class="table">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><button class="bookButton">Book
+                                TABLE-01</button></div>
+                    </div>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><img src="/images/dinner.png" class="table">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><button class="bookButton">Book
+                                TABLE-02</button></div>
+                    </div>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><img src="/images/dinner.png" class="table">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><button class="bookButton">Book
+                                TABLE-03</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row aligned">
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><img src="/images/dinner.png" class="table table1">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><button class="bookButton">Book
+                                TABLE-04</button></div>
+                    </div>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><img src="/images/dinner.png" class="table table2">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><button class="bookButton">Book
+                                TABLE-05</button></div>
+                    </div>
+                </div>
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+            </div>
+            <div class="row aligned">
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><img src="/images/dinner.png" class="table table1">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><button class="bookButton">Book
+                                TABLE-06</button></div>
+                    </div>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><img src="/images/dinner.png" class="table table2">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><button class="bookButton">Book
+                                TABLE-07</button></div>
+                    </div>
+                </div>
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+            </div>
+            <div class="row aligned">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><img src="/images/dinner.png" class="table">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><button class="bookButton">Book
+                                TABLE-08</button class="bookButton"></div>
+                    </div>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><img src="/images/dinner.png" class="table">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><button class="bookButton">Book
+                                TABLE-09</button></div>
+                    </div>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><img src="/images/dinner.png" class="table">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><button class="bookButton">Book
+                                TABLE-10</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% var divisons = ["div-1","div-2","div-3","div-4","div-5","div-6","div-7","div-8","div-9","div-10"] %>
+        <% var timings  = ["1:00pm - 2:30pm","3:00pm - 4:30pm","5:00pm - 6:30pm","7:00pm - 8:30pm","9:00pm - 10:30pm"] %>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 infoContainer">
+            <div id="div-0">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 info1">
+                        <h1><span>Table Reservations</span></h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="info2 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <h3><span>Reserve your time slot and book your table a day prior</span></h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="info3 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <h5><span class="info">Special Arrangements servies for couple-Dates, Birthday-Treats and
+                                Friends-Reunions also available</span></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <div class="checkBox">                        
+                            <input id="cb1" type="checkbox" name="cb1" value="item1">Candles 
+                        </div>  
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <div class="checkBox">
+                            <input id="cb2" type="checkbox" name="cb2" value="item2">Flowers / Bouquets
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <div class="checkBox">
+                            <input id="cb3" type="checkbox" name="cb3" value="item1">Chocolates / Cakes
+                        </div>    
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <div class="checkBox">
+                            <input id="cb4" type="checkbox" name="cb4" value="item2">Card
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <input id="ip" class="userRequirements" type="text" name="requirements" placeholder="Enter your preferences for cakes/chocolates/flowers">
+                    </div>
+                </div>
+                <br><br>
+            </div>
+             
+            <div id="div-1">
+                <div class="row">
+                    <h1><strong>Reservations for Table No.01</strong></h1>
+                    <h2><strong>Table for 4 People</strong></h2>
+                </div>
+                <% for(var i = 0; i< 5; ++i) { %>
+                <% className = i.toString() + "-table1"  %>
+                <div class="divRow">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <h5><strong><%= timings[i] %></strong></h5>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <% if(x[0].table1[i]  == 1) { %>
+                            <h4>Available</h4>
+                            <% }else{ %>
+                            <h4>Unavailable</h4>
+                            <%}%>
+                            </div>
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                <% if(x[0].table1[i]  == 1) { %>
+                            <form method="GET" action="/checkout2"><button class="btnxx " id="<%=className%>">Book</button></form>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+            <div id="div-2">
+                <div class="row">
+                    <h1><strong>Reservations for Table No.02</strong></h1>
+                    <h2><strong>Table for 4 People</strong></h2>
+                </div>
+                <% for(var i=0; i< 5; ++i) { %>
+                <% className = i.toString()  + "-table2"  %>
+                <div class="divRow">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <h5><strong><%= timings[i] %></strong></h5>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <% if(x[0].table2[i] == 1) { %>
+                            <h4>Available</h4>
+                            <% }else{ %>
+                            <h4>Unavailable</h4>
+                            <%}%>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                        <% if(x[0].table2[i]  == 1) { %>
+                                            <form method="GET" action="/checkout2"><button class="btnxx" id="<%=className%>">Book</button></form>
+                                        <% } %>
+                                    </div>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+            <div id="div-3">
+                <div class="row">
+                    <h1><strong>Reservations for Table No.03</strong></h1>
+                    <h2><strong>Table for 4 People</strong></h2>
+                </div>
+                <% for(var i=0; i< 5; ++i) { %>
+                <% className = i.toString() + "-table3"  %>
+                <div class="divRow">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <h5><strong><%= timings[i] %></strong></h5>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <% if(x[0].table3[i] == 1) { %>
+                            <h4>Available</h4>
+                            <% }else{ %>
+                            <h4>Unavailable</h4>
+                            <%}%>
+                                   </div>
+                                   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <% if(x[0].table3[i]  == 1) { %>
+                            <form method="GET" action="/checkout2"><button class="btnxx" id="<%=className%>">Book</button></form>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+            <div id="div-4">
+                <div class="row">
+                    <h1><strong>Reservations for Table No.04</strong></h1>
+                    <h2><strong>Table for 6 People</strong></h2>
+                </div>
+                <% for(var i=0; i< 5; ++i) { %>
+                <% className = i.toString() + "-table4" %>
+                <div class="divRow">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <h5><strong><%= timings[i] %></strong></h5>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <% if(x[0].table4[i] == 1) { %>
+                            <h4>Available</h4>
+                            <% }else{ %>
+                            <h4>Unavailable</h4>
+                            <%}%>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                        <% if(x[0].table4[i]  == 1) { %>
+                            <form method="GET" action="/checkout2"><button class="btnxx" id="<%=className%>">Book</button></form>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+            <div id="div-5">
+                <div class="row">
+                    <h1><strong>Reservations for Table No.05</strong></h1>
+                    <h2><strong>Table for 6 People</strong></h2>
+                </div>
+                <% for(var i=0; i< 5; ++i) { %>
+                <% className =   i.toString() + "-table5"  %>
+                <div class="divRow">
+                    <div class="row ">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <h5><strong><%= timings[i] %></strong></h5>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <% if(x[0].table5[i] == 1) { %>
+                            <h4>Available</h4>
+                            <% }else{ %>
+                            <h4>Unavailable</h4>
+                            <%}%>
+                                   </div>
+                                   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <% if(x[0].table5[i]  == 1) { %>
+                            <form method="GET" action="/checkout2"><button class="btnxx" id="<%=className%>">Book</button></form>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+            <div id="div-6">
+                <div class="row">
+                    <h1><strong>Reservations for Table No.06</strong></h1>
+                    <h2><strong>Table for 6 People</strong></h2>
+                </div>
+                <% for(var i=0; i< 5; ++i) { %>
+                <% className = i.toString() + "-table6"   %>
+                <div class="divRow">
+                    <div class="row ">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <h5><strong><%= timings[i] %></strong></h5>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <% if(x[0].table6[i] == 1) { %>
+                            <h4>Available</h4>
+                            <% }else{ %>
+                            <h4>Unavailable</h4>
+                            <%}%>
+                                   </div>
+                                   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <% if(x[0].table6[i]  == 1) { %>
+                            <form method="GET" action="/checkout2"><button class="btnxx" id="<%=className%>">Book</button></form>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+            <div id="div-7">
+                <div class="row">
+                    <h1><strong>Reservations for Table No.07</strong></h1>
+                    <h2><strong>Table for 7 People</strong></h2>
+                </div>
+                <% for(var i=0; i< 5; ++i) { %>
+                <% className =  i.toString()  + "-table7" %>
+                <div class="divRow">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <h5><strong><%= timings[i] %></strong></h5>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <% if(x[0].table7[i] == 1) { %>
+                            <h4>Available</h4>
+                            <% }else{ %>
+                            <h4>Unavailable</h4>
+                            <%}%>
+                                   </div>
+                                   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <% if(x[0].table7[i]  == 1) { %>
+                            <form method="GET" action="/checkout2"><button class="btnxx" id="<%=className%>">Book</button></form>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+            <div id="div-8">
+                <div class="row">
+                    <h1><strong>Reservations for Table No.08</strong></h1>
+                    <h2><strong>Table for 4 People</strong></h2>
+                </div>
+                <% for(var i=0; i< 5; ++i) { %>
+                <% className = i.toString() + "-table8"  %>
+                <div class="divRow">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <h5><strong><%= timings[i] %></strong></h5>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <% if(x[0].table8[i] == 1) { %>
+                            <h4>Available</h4>
+                            <% }else{ %>
+                            <h4>Unavailable</h4>
+                            <%}%>
+                                   </div>
+                                   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <% if(x[0].table8[i]  == 1) { %>
+                            <form method="GET" action="/checkout2"><button class="btnxx" id="<%=className%>">Book</button></form>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+            <div id="div-9">
+                <div class="row">
+                    <h1><strong>Reservations for Table No.09</strong></h1>
+                    <h2><strong>Table for 4 People</strong></h2>
+                </div>
+                <% for(var i=0; i< 5; ++i) { %>
+                <% className =  i.toString() + "-table9"  %>
+                <div class="divRow">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <h5><strong><%= timings[i] %></strong></h5>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <% if(x[0].table9[i] == 1) { %>
+                            <h4>Available</h4>
+                            <% }else{ %>
+                            <h4>Unavailable</h4>
+                            <%}%>
+                                   </div>
+                                   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <% if(x[0].table9[i]  == 1) { %>
+                            <form method="GET" action="/checkout2"><button class="btnxx" id="<%=className%>">Book</button></form>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+            <div id="div-10">
+                <div class="row">
+                    <h1><strong>Reservations for Table No.10</strong></h1>
+                    <h2><strong>Table for 4 People</strong></h2>
+                </div>
+
+                <% for(var i=0; i< 5; ++i) { %>
+                <% className = i.toString() + "-table10"  %>
+                <div class="divRow">
+                    <div class="row">
+                        <div class=" col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <h5><strong><%= timings[i] %></strong></h5>
+                        </div>
+                        <div class=" col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <% if(x[0].table10[i] == 1) { %>
+                            <h4>Available</h4>
+                            <% }else{ %>
+                            <h4>Unavailable</h4>
+                            <%}%>
+                            </div>
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                <% if(x[0].table10[i]  == 1) { %>
+                            <form method="GET" action="/checkout2"><button class="btnxx" id="<%=className%>">Book</button></form>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+
+            </div>   
+            </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    </body>
+
+</html>

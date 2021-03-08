@@ -1,0 +1,174 @@
+
+
+.table{
+    height: 70px;
+    width: 40px;
+    padding-left: 10%;
+    padding-right: 10%;
+    align-items: center;
+}
+
+.table1{
+    align-items: right;
+    margin-left: 30px;
+}
+
+.table2{
+    align-items: left;
+    margin-right: 30px;
+}
+
+.layout{
+    background: lightyellow;
+    padding: 5%;
+}
+
+.aligned{
+    margin-bottom: 30px;
+}
+
+.info1{
+    text-align: center;
+    align-items: center;
+    margin-top: 20%;
+    font-size: 30px!important;
+    color: white;
+    font-weight: 900;
+}
+
+.info2{
+    margin-top: 3%;
+    text-align: center;
+    align-items: center;
+    font-size: 20px;
+    color: white;
+    font-weight: 600;
+}
+
+.info3{
+    margin-top: 3%;
+    text-align: center;
+    align-items: center;
+    font-size: 18px;
+    color: white;
+    font-weight: 400;
+}
+
+.infoContainer{
+    background: #018989;
+    
+}
+
+.booking{
+    height: 80vh;
+}
+
+.bookButton{
+
+    width: 80%;
+    height: 100%;
+    background: #018989;
+    color: #e9eaea;
+    font-weight: bold;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 35px;
+
+}
+
+#div-0{
+    display: block;
+    align-items: center;
+    text-align: center;
+}
+
+#div-1,
+#div-2,
+#div-3,
+#div-4,
+#div-5,
+#div-6,
+#div-7,
+#div-8,
+#div-9,
+#div-10{
+    display: none;
+    align-items: center;
+    text-align: center;
+
+}
+
+.checkBox{
+
+    padding-left: 5px;
+    background: white;
+    color: black;
+    font-size: 20px;
+    text-align: left;
+    align-items: left;  
+    margin-top: 20px;
+    width: 95%;
+    height: 40px;
+    align-self: center;
+    font-weight: bold;
+    border: solid red 2px;
+    border-radius: 10%; 
+}
+
+#ip{
+    height: 70px;
+    width: 90%;
+    align-self: center;
+    color: black;
+    font-weight: bold;
+    border: 2px solid red;
+}
+
+
+.btnxx{
+
+    width: 80%;
+    height: 40px;
+    background: #018989;
+    color: white;
+    border: solid 2px black;
+    font-weight: bold;
+    border-bottom-left-radius: 30%;
+    border-bottom-right-radius: 30%;
+    padding-top: 10px;
+    padding-bottom: 30px;
+  }
+
+  .divRow{
+      background: lightgoldenrodyellow;
+      color: #018989;
+      height: 70px;
+      margin-left: 5px;
+      margin-right: 10px;
+      margin-top: 20px;
+      border-bottom-left-radius: 10%;
+      border-bottom-right-radius: 10%;
+      border-top-left-radius: 10%;
+      border-top-right-radius: 10%;
+    
+    }
+    .divRow:hover{
+        border: 3px solid red;
+
+    }
+
+    h1{
+        text-align: center;
+        color: white;
+        margin-left: 15%;
+    }
+
+    h2{
+        text-align: center;
+        color: white;
+        margin-left: 35%;
+    }
+
+    

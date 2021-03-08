@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chef Panel</title>
+    <!-- <script src="https://kit.fontawesome.com/57a23a503a.js" crossorigin="anonymous"></script> -->
+    <script src="https://use.fontawesome.com/2b80ffe233.js"></script>
+    
+    <link rel="stylesheet" href="/css/background.css">
+    <link rel="stylesheet" type="text/css" href="/css/flexboxgrid.css">
+    <link rel="stylesheet" type="text/css" href="/css/userPanel.css">
+    <link rel="stylesheet" type="text/css" href="/css/landing4.css">
+    <%- include('head') %>
+    <% var imgSrc =
+    { DineIn: "/images/dine.png",
+    TakeAway : "/images/take.png",
+    HomeDelivery : "/images/deliver.png"};%>
+    <!--Body Begins-->
+    <div class="container">
+        <div class="row">
+            <% orders.forEach( (order)=>{ %>
+            <div class=" col-md-6 col-lg-4">
+                <a href="/orders/<%=order._id%>">
+                    <div class="order">
+                        <div class="oid">
+                            Order-ID: <%= order.orderId%><br>
+                            Created: <%= (order.createdAt).toString().substring(0,25) %><br>
+                            Order Type: <%= order.orderType%><br>
+                            Value: ₹<%= order.orderSummary.gTotal%>/-<br>
+                            
+                            <img class="img" src="<%= imgSrc[order.orderType.replace('-','')] %>" alt="">
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+            <% }); %>
+        </div>
+    </div>
+
+    <footer>
+        <div class="row">
+            
+            <div class="col-sm-0 col-md-1"></div>
+
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 footI">
+                    <a href="#"><i class="fa fa-facebook icon footICO" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-twitter icon footICO" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-instagram icon footICO" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-google-plus icon footICO" aria-hidden="true"></i></a>
+            </div> 
+
+
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 contactFoot">
+                 
+                <div class="foot-contact-info">
+                    <ul>
+                        <li>1, XYZ Street, Bangalore,India</li>
+                        <li>+91-1295884665</li>
+                    </ul>            
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 contactFoot">
+            
+                    <div class="foot-contact-info">
+                             <ul>
+                                 <li>support@whatsfordinner.com</li>
+                             </ul>            
+                    </div>
+                </div>
+            <div class="col-sm-0 col-md-1"></div>    
+        </div>
+ </footer>
+
+    </body>
+
+</html>

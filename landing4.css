@@ -1,0 +1,58 @@
+.contact{
+
+    padding-left: 10%;
+    margin-bottom: 05%;
+    color: white;
+}
+
+ul li{
+    list-style: none;
+}
+.icons{
+
+    margin-top: 10%;
+    
+}
+
+.fa ,
+.fa-facebook,
+.fa-twitter,
+.fa-instagram,
+.fa-google-plus{
+
+    margin-right: 10%;
+    font-size: 30px !important;
+    color: #ecf0f1;
+}
+
+
+.map{
+    max-height: 300px;
+    margin-top: 10px;
+    width: 80%;
+    align-self: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 5%;
+}
+
+#footerPara{
+    margin-top: 10px ;
+    font-size: 40px;
+    color: white;
+}
+
+
+.contact-info{
+
+    margin-top: 10%;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.5;
+    color: white;
+}
+
+footer{
+    color: #ecf0f1;
+    background: #2c3e50;
+}

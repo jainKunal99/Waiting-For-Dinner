@@ -1,0 +1,251 @@
+/*Shubh:--*/
+
+
+.Navheader{
+    color: #ecf0f1;
+    font-size: 1.4rem;
+}
+
+.brandText{
+    font-size: 1.8rem;
+    margin: 0 0;
+}
+
+.brandICO{
+    height: 50px;
+}
+
+@media(max-width:700px)
+{
+    .brandText{
+        font-size: 1.4rem;
+    }
+    .header{
+        font-size: 1rem;
+    }
+    .brandICO{
+        height: 35px;
+    }
+}
+
+.fixed{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030
+}
+
+.loginImage {
+    max-height: 200px;
+    margin-top: 1%;
+    margin-left: 45%;
+}
+
+.errorMess{
+    text-align: center;
+    font-size: 1.2rem;
+    color: red;
+    padding-top: 1%;
+}
+
+.navBtn{
+    margin: 1% 1%;
+    padding: 0.5% 0.5%;
+    font-size: 1rem;
+    background: white;
+}
+
+.footPara
+{
+    
+    margin-top: 5px ;
+    font-size: 20px;
+    color: rgb(180,180,180);
+}
+.foot-contact-info{
+
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.5;
+    color: #ecf0f1;
+    text-align: center;
+}
+.footICO{
+    margin:4%;
+}
+
+.contactFoot{
+
+    padding-left: 0%;
+    margin-bottom: 0;
+    color: #fff;
+}
+
+.footI{
+    align-self: center;
+}
+
+
+/*Kunal:--*/
+
+#snacks{
+    display: block;
+}
+
+#punjabi,
+#fast-food,
+#drinks,
+#chaats,
+#ice-cream,
+#checkOut,
+#VEG-dishes,
+#NONVEG-dishes{
+    display: none;
+}
+
+.outer{
+  height: 100vh;
+}
+.fitImage{
+
+    height: 150px;
+    width: 100%;
+    text-align: center;
+    align-self: center;
+}
+
+
+.rowx{
+    margin-left: 5%!important;
+    margin-right: 3%!important;
+    border: 3px solid #018989;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: lightgoldenrodyellow;
+    
+}
+
+.addButton:hover,
+.minusButton:hover{
+
+  border: 2px solid purple;
+}
+
+.buttonBar{
+    margin-left: 0!important;
+    margin-right: 0!important;
+    margin-bottom: 1%;
+}
+
+
+.btnx{
+
+    width: 100%;
+    height: 100%;
+    background: #018989;
+    color: #e9eaea;
+    font-weight: bold;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+  }
+  .btnx:hover {
+    color: rgb(255, 80, 80);
+    font-size: 1.1rem;
+    border-width: 2px;
+    border-style: solid;
+    border-color: red;
+    border-image: initial;
+}
+
+  .icon{
+
+    width: 30px;
+    height: 30px;
+    padding: 0 0 0 0;
+   
+  }
+
+  .likeButton,
+  .dislikeButton
+  {
+
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #000;
+
+  }
+
+  .dislikeButton{
+    margin-left: 50px;
+  }
+
+  .likeButton:hover,
+  .dislikeButton:hover{
+
+    color: #018989;
+  }
+
+  h4,h3{
+    margin-right: 1%;
+    margin-left: 2%;
+      
+  }
+
+  .addButton:hover{
+    color: green;
+  }
+
+  .minusButton:hover{
+    color: red;
+  }
+  .addButton,
+  .minusButton{
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 50%;
+  }
+
+  .addButton{
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  .minusButton{
+    margin-right: 30px;
+  }
+
+.fa-star:hover{
+  color: #000;
+
+}
+.fa-star{
+
+  color: red;
+}
+
+.checkOutButton{
+  width: 50%;
+  height: 90%;
+  background: #018989;
+  color: #e9eaea;
+  font-weight: bold;
+  border-bottom-left-radius: 10%;
+  border-bottom-right-radius: 10%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.alignment{
+  align-items: center;
+  text-align: center;
+}
+
+.checkOutButton a{
+  text-decoration: none;
+}

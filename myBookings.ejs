@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My-Bookings</title>
+    <script src="https://kit.fontawesome.com/57a23a503a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/css/flexboxgrid.css">
+    <link rel="stylesheet" type="text/css" href="/css/booking.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" type="text/css" href="/css/bookingPanel.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <%- include('head') %>
+        </div>
+    </div>
+
+    <% var timings  = ["1:00pm - 2:30pm","3:00pm - 4:30pm","5:00pm - 6:30pm","7:00pm - 8:30pm","9:00pm - 10:30pm"] %>
+    <div class="container">
+        <div class="row">
+
+            <% var customerName = name; %>
+            <% bookings.forEach( (booking)=>{ %>
+                <% if(booking.date == dateReserved && booking.name == customerName){ %>
+            <div class=" col-sm-6 col-md-4">
+                <div class="booking">
+                    Booking-ID: <%= booking.reservationId.substring(18) %><br>
+                    User: <%= booking.name%><br>
+                    <hr id="hr">
+                    Date: <%= booking.date %><br>
+                    Time Slot: <%= timings[booking.timeSlot] %><br>
+                    Table: <%= booking.tableName %><br>
+                    Recieved: <%= booking.bookedAt.substring(0,25) %><br>
+                    <% if(booking.requirements.userRequirements != "") {%>
+
+                            <h5>Special Requirements</h5>
+                            <h6><%=  booking.requirements.userRequirements %></h6>
+                        <% }else{   %>
+                            <h5>No Special Requirements</h5>
+                            <% } %>
+                            <ul>
+                            <%  if(booking.requirements.candles == true){ %>
+                                <li>Candles</li> 
+                            <% } %>    
+                            <%  if(booking.requirements.flowers == true) {%>
+                                <li>Flowers</li>
+                            <% } %>      
+                            <%  if(booking.requirements.chocolates == true) {%>
+                                <li>Chocolates</li>
+                            <% } %>  
+                            <%  if(booking.requirements.card == true) { %>
+                                <li>Card</li>
+                            <% } %> 
+                        </ul>
+
+                       <div class="cancellation">
+                        <form action="/myBookings/<%= booking._id %>" method="POST">
+                            <button type="submit" class="cancelBooking">CANCEL</button>
+                        </form>
+                       </div>
+                </div>
+            </div>
+                <% } %>
+            <% }); %>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

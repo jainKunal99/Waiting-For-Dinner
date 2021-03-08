@@ -1,0 +1,27 @@
+<link rel="shortcut icon" href="/images/logo/Final_Log-1.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/header.css">
+</head>
+
+
+<body>
+<nav class=" navbar Navheader navbar-dark bg-dark py-0">
+    <a class="navbar-brand brandText" href="/">
+        <img class="brandICO" src="/images/logo/Final_Log-0.png">
+        <span> Waiting For Dinner?</span>
+    </a>
+    <ul class="navbar-nav mr-auto flex-row">
+        <li class="nav-item">
+            <a class="nav-link px-4" href="/orders">Orders</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link px-4" href="/booking">Book Now</a>
+        </li>
+    </ul>
+    <span>
+        <form action="/logout?_method=DELETE" method="POST">
+            <button type="submit" class="btnx">LOG OUT</button>
+        </form>
+    </span>
+    <span class="justify-right"><strong>Welcome <%= name%></strong></span>
+</nav>

@@ -1,0 +1,99 @@
+/*  KUNAL  */
+
+#invoiceDiv{
+    box-sizing: border-box;
+    width: 70%;
+    margin-top: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    align-self: center;
+    border: 3px solid red;
+
+}
+
+#detailsDiv{
+    background: lightgoldenrodyellow;
+    border: 1px solid darkgoldenrod;
+    width: 100%;
+    padding-left: 15px;
+    
+}
+
+#detailsDiv h4{
+    color: purple;
+    font-weight: bold;
+    font-size: 18px;
+    
+}
+
+#orderDiv{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.rowItem1-heading{
+    width: 40%;
+    background: darkseagreen;
+    font-weight: bold;
+    font-size: 20px;
+    align-content: center;
+    text-align: center;
+}
+
+.rowItem2-heading,
+.rowItem3-heading,
+.rowItem4-heading{
+    width: 20%;
+    background: darkseagreen;
+    font-weight: bold;
+    font-size: 20px;
+    align-content: center;
+    text-align: center;
+}
+
+.rowItem1{
+    width: 40%;
+    background: lightcyan;
+    font-weight: bold;
+    font-size: 16px;
+    align-content: center;
+    text-align: center;
+    border-bottom: 2px solid purple;
+}
+
+.rowItem2,
+.rowItem3,
+.rowItem4{
+    width: 20%;
+    background: lightcyan;
+    font-weight: bold;
+    font-size: 16px;
+    align-content: center;
+    text-align: center;
+    border-bottom: 2px solid purple;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.total{
+    align-items: right;
+    text-align: right;
+    margin-left: 70%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    background: lightgoldenrodyellow!important;
+    
+}
+
+#message{
+    font-family: 'Sofia';
+    font-size: 24px;
+    align-items: center;
+    text-align: center;
+}
+
+
+

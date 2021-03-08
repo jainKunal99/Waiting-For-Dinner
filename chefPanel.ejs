@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chef Panel</title>
+    <script src="https://kit.fontawesome.com/57a23a503a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/css/flexboxgrid.css">
+    
+    <link rel="stylesheet" href="/css/background.css">
+    <link rel="stylesheet" type="text/css" href="/css/chefPanel.css">
+    <%- include('head') %>
+    <% var imgSrc =
+    { DineIn: "/images/dine.png",
+    TakeAway : "/images/take.png",
+    HomeDelivery : "/images/deliver.png"};%>
+    <% var stat = ["Recieved","Preparing","Ready","Dispatched"]; %>
+    <!--Body Begins-->
+    <div class="container">
+        <% orders.forEach( (order)=>{ 
+            if(order.status < 4)
+            {%>
+        <div class="order">
+            <div class="oid">
+                Order-ID: <%= order.orderId%>
+                User: <%= order.cName%>
+            </div>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="row">
+                        <span class="rowItem1-heading">Item</span>
+                        <span class="rowItem2-heading">Quantity</span>
+                    </div>
+                    <% order.orderSummary.itemNames.forEach((itemNam, index)=>{%> 
+                    <div class="row">
+                        <span class="rowItem1"><%= itemNam %></span>
+                        <span class="rowItem2"><%= order.orderSummary.itemQuantities[index] %></span>
+                    </div>
+                    <%}); %>
+                    <div class="oid special">
+                        Requests: <%= order.extraRequirements%>
+                    </div>
+                </div>
+                <div class="col-lg-4 center">
+                    <span class="status"><%= stat[order.status] %></span>
+                    <form action="/chef/<%= order._id %>/<%= (order.status+1) %>" method="POST">
+                    <button type="submit"><span><i class="fas fa-plus"></i></span></button>
+                        </form>
+                        <img class="img" src="<%= imgSrc[order.orderType.replace('-','')] %>" alt="">
+                </div>
+            </div>
+
+        </div>
+        <% }}); %>
+    </div>
+
+
+    
+    </body>
+
+</html>

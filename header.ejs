@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/57a23a503a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" type="text/css" href="/css/flexboxgrid.css">
+    <link rel="stylesheet" type="text/css" href="/css/landing1.css">
+    <link rel="stylesheet" type="text/css" href="/css/background.css">
+    <script src="header.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        .ipBox{
+    
+    padding: 2% 5%;
+    border-radius: 10%;
+    width: 100%;
+}
+.ipBox:hover{
+    border: 1px solid red;
+}
+.ipBox:focus{
+    border: 2px solid red;
+}
+        </style>
+</head>
+
+
+<body>
+    <nav class=" navbar Navheader navbar-dark bg-dark py-0">
+        <a class="navbar-brand brandText" href="##">
+            <img class="brandICO" src="/images/logo/Final_Log-0.png">
+            <span> Waiting For Dinner?</span>
+        </a>
+        <span>
+            <form action="/logout?_method=DELETE" method="POST">
+                <button type="submit" class="btnx">LOG OUT</button>
+            </form>
+        </span>
+        <span class="justify-right"><strong>Welcome <%= name%></strong></span>
+    </nav>
+
+    <%
+    
+        var SNACKS = [];
+        var PUNJABI = [];
+        var CHAATS = [];
+        var VEG = [];
+        var NONVEG = [];
+        for(var i=0; i< DISHES.length; ++i){
+            if(DISHES[i].cuisine == "snacks")
+            SNACKS.push(DISHES[i]);
+            else if(DISHES[i].cuisine == "Punjabi")
+            PUNJABI.push(DISHES[i]);
+            else if(DISHES[i].cuisine == "Chaat")
+            CHAATS.push(DISHES[i]);
+
+            if(DISHES[i].isVegetarian == true)
+            VEG.push(DISHES[i]);
+            else
+            NONVEG.push(DISHES[i]);    
+        }
+    %>
+
+    <input type="radio" id="dine" name="order" value="Dine-In">
+    <label for="male">Dine-In</label><br>
+    <input type="radio" id="take" name="order" value="Take-Away">
+    <label for="female">Take-Away</label><br>
+    <input type="radio" id="home" name="order" value="Home-Delivery">
+    <label for="other">Home-Delivery</label>
+    <br>
+    <br>
+    
+
+    <div class="row buttonBar">
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><button class="btnx">Snacks</button></div>
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><button class="btnx">Punjabi</button></div>
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><button class="btnx">Fast Food</button></div>
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><button class="btnx">Drinks</button></div>
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><button class="btnx">Chaats</button></div>
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><button class="btnx">IceCream</button></div>
+    </div>
+
+    
+
+    <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" > 
+            <div class="alignment">
+                <form method="GET" action="/test">
+                    <button type="submit" class="checkOutButton">checkOut</button>
+                </form>
+             </div>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" > 
+            <div  class="alignment">
+                    <button id="VEG" class="checkOutButton">VEG</button>
+             </div>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" > 
+            <div  class="alignment">
+                    <button id="NONVEG" class="checkOutButton">NON-VEG</button>
+             </div>
+        </div>
+    </div> 
+
+    <div id="VEG-dishes">
+        <% for(var i = 0;i < VEG.length; ++i) {%>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div class="row rowx">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <img src="<%= VEG[i].image %>" class="fitImage">
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <h4><%= VEG[i].name %></h4>
+                        <% if(VEG[i].isVegetarian == true) { %>
+                        <h4><img class="icon" src="/images/veg.jpg">Vegetarian</h4>
+                        <% }else{ %>
+                        <h4><img class="icon" src="/images/nonveg.jpg">Non-Vegetarian</h4>
+                        <% } %>
+                        
+                        <h4>Rs.<%= VEG[i].price%></h4>
+                        
+                        <h4>
+                        <span><button class="minusButton"><i class="fas fa-minus "></i></button></span>
+                            <span class="quantity">0</span>
+                            <span><button class="addButton"><i class="fas fa-plus"></i></button></span>
+                            <span>0</span>
+                        </h4>
+                        
+                    </div>
+                </div>
+            </div>
+            <% if(i < (VEG.length - 1)) { %>
+            <% ++i %>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 rowx2">
+                <div class="row rowx">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+                        <img src="<%= VEG[i].image %>" class="fitImage">
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <h4><%= VEG[i].name %></h4>
+
+                        <% if(VEG[i].isVegetarian == true) { %>
+                        <h4><img class="icon" src="/images/veg.jpg">Vegetarian</h4>
+                        <% }else{ %>
+                        <h4><img class="icon" src="/images/nonveg.jpg">Non-Vegetarian</h4>
+                        <% } %>
+                        <h4>Rs.<%= VEG[i].price%></h4>
+                        <h4>
+                            <span><button class="minusButton"><i class="fas fa-minus "></i></button></span>
+                            <span class="quantity">0</span>
+                            <span><button class="addButton"><i class="fas fa-plus "></i></button></span>
+                            <span>0</span>
+                        </h4>
+                        
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </div>
+        <% } %>
+    </div>
+</div>>
+    <div id="NONVEG-dishes">
+        <% for(var i = 0;i < NONVEG.length; ++i) {%>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div class="row rowx">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <img src="<%= NONVEG[i].image %>" class="fitImage">
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <h4><%= NONVEG[i].name %></h4>
+                        <% if(NONVEG[i].isVegetarian == true) { %>
+                        <h4><img class="icon" src="/images/veg.jpg">Vegetarian</h4>
+                        <% }else{ %>
+                        <h4><img class="icon" src="/images/nonveg.jpg">Non-Vegetarian</h4>
+                        <% } %>
+                        
+                        <h4>Rs.<%= NONVEG[i].price%></h4>
+                        
+                        <h4>
+                        <span><button class="minusButton"><i class="fas fa-minus "></i></button></span>
+                            <span class="quantity">0</span>
+                            <span><button class="addButton"><i class="fas fa-plus"></i></button></span>
+                            <span>0</span>
+                        </h4>
+                        
+                    </div>
+                </div>
+            </div>
+            <% if(i < (NONVEG.length - 1)) { %>
+            <% ++i %>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 rowx2">
+                <div class="row rowx">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+                        <img src="<%= VEG[i].image %>" class="fitImage">
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <h4><%= NONVEG[i].name %></h4>
+
+                        <% if(NONVEG[i].isVegetarian == true) { %>
+                        <h4><img class="icon" src="/images/veg.jpg">Vegetarian</h4>
+                        <% }else{ %>
+                        <h4><img class="icon" src="/images/nonveg.jpg">Non-Vegetarian</h4>
+                        <% } %>
+                        <h4>Rs.<%= NONVEG[i].price%></h4>
+                        <h4>
+                            <span><button class="minusButton"><i class="fas fa-minus "></i></button></span>
+                            <span class="quantity">0</span>
+                            <span><button class="addButton"><i class="fas fa-plus "></i></button></span>
+                            <span>0</span>
+                        </h4>
+                        
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </div>
+        <% } %>
+    </div>
+</div>>
+
+
+    <div id="snacks">
+        <% for(var i = 0;i < SNACKS.length; ++i) {%>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div class="row rowx">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <img src="<%= SNACKS[i].image %>" class="fitImage">
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <h4><%= SNACKS[i].name %></h4>
+                        <% if(SNACKS[i].isVegetarian == true) { %>
+                        <h4><img class="icon" src="/images/veg.jpg">Vegetarian</h4>
+                        <% }else{ %>
+                        <h4><img class="icon" src="/images/nonveg.jpg">Non-Vegetarian</h4>
+                        <% } %>
+                        
+                        <h4>Rs.<%= SNACKS[i].price%></h4>
+                        <h4>
+
+                            <span><button class="minusButton"><i class="fas fa-minus "></i></button></span>
+                            <span class="quantity">0</span>
+                            <span><button class="addButton"><i class="fas fa-plus"></i></button></span>
+                            <span>0</span>
+                        </h4>
+                        
+                    </div>
+                </div>
+            </div>
+            <% if(i < (SNACKS.length - 1)) { %>
+            <% ++i %>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 rowx2">
+                <div class="row rowx">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+                        <img src="<%= SNACKS[i].image %>" class="fitImage">
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <h4><%= SNACKS[i].name %></h4>
+
+                        <% if(SNACKS[i].isVegetarian == true) { %>
+                        <h4><img class="icon" src="/images/veg.jpg">Vegetarian</h4>
+                        <% }else{ %>
+                        <h4><img class="icon" src="/images/nonveg.jpg">Non-Vegetarian</h4>
+                        <% } %>
+                        <h4>Rs.<%= SNACKS[i].price%></h4>
+                        <h4>
+                            <span><button class="minusButton"><i class="fas fa-minus "></i></button></span>
+                            <span class="quantity">0</span>
+                            <span><button class="addButton"><i class="fas fa-plus "></i></button></span>
+                            <span>0</span>
+                        </h4>
+                        
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </div>
+        <% } %>
+    </div>
+</div>>
+
+
+
+    <div id="punjabi">
+        <% for(var i = 0;i < PUNJABI.length; ++i) {%>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="row rowx">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <img src="<%= PUNJABI[i].image %>" class="fitImage">
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <h4><%= PUNJABI[i].name %></h4>
+                            <% if(PUNJABI[i].isVegetarian == true) { %>
+                            <h4><img class="icon" src="/images/veg.jpg">Vegetarian</h4>
+                            <% }else{ %>
+                            <h4><img class="icon" src="/images/nonveg.jpg">Non-Vegetarian</h4>
+                            <% } %>
+                            
+                            <h4>Rs.<%= PUNJABI[i].price%></h4>
+                            <h4>
+    
+                                <span><button class="minusButton"><i class="fas fa-minus "></i></button></span>
+                                <span class="quantity">0</span>
+                                <span><button class="addButton"><i class="fas fa-plus"></i></button></span>
+                                <span>0</span>
+                            </h4>
+                            
+                        </div>
+                    </div>
+                </div>
+                <% if(i < (PUNJABI.length - 1)) { %>
+                <% ++i %>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 rowx2">
+                    <div class="row rowx">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+                            <img src="<%= PUNJABI[i].image %>" class="fitImage">
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <h4><%= PUNJABI[i].name %></h4>
+    
+                            <% if(PUNJABI[i].isVegetarian == true) { %>
+                            <h4><img class="icon" src="/images/veg.jpg">Vegetarian</h4>
+                            <% }else{ %>
+                            <h4><img class="icon" src="/images/nonveg.jpg">Non-Vegetarian</h4>
+                            <% } %>
+                            <h4>Rs.<%= PUNJABI[i].price%></h4>
+                            <h4>
+                                <span><button class="minusButton"><i class="fas fa-minus "></i></button></span>
+                                <span class="quantity">0</span>
+                                <span><button class="addButton"><i class="fas fa-plus "></i></button></span>
+                                <span>0</span>
+                            </h4>
+                            
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+            <% } %>
+    </div>
+    <div id="fast-food">
+    </div>
+    <div id="drinks">drinks-ice-cream Chaats Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint maiores
+        accusantium quam atque! Repellendus error dolorum rem tempore blanditiis sed a consequuntur nostrum! Quae
+        itaque, natus exercitationem harum minus recusandae nulla perspiciatis labore quas pariatur debitis minima,
+        deserunt adipisci assumenda repudiandae quia cum nemo repellendus, autem facilis nobis cupiditate quis!
+        Dignissimos quaerat sed adipisci reiciendis aliquam ratione vel eligendi vitae, maxime beatae magnam ut, officia
+        optio modi laborum earum nam dicta consequatur molestiae accusamus nisi iusto? Incidunt facilis excepturi, a
+        fugiat, pariatur explicabo sed accusamus repellat ab deleniti repellendus corrupti eveniet obcaecati ratione
+        mollitia. Expedita cumque illum facilis laudantium dignissimos.</div>
+    <div id="chaats">
+        <% for(var i = 0;i < CHAATS.length; ++i) {%>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="row rowx">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <img src="<%= CHAATS[i].image %>" class="fitImage">
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <h4><%= CHAATS[i].name %></h4>
+                            <% if(PUNJABI[i].isVegetarian == true) { %>
+                            <h4><img class="icon" src="/images/veg.jpg">Vegetarian</h4>
+                            <% }else{ %>
+                            <h4><img class="icon" src="/images/nonveg.jpg">Non-Vegetarian</h4>
+                            <% } %>
+                            
+                            <h4>Rs.<%= CHAATS[i].price%></h4>
+                            <h4>
+    
+                                <span><button class="minusButton"><i class="fas fa-minus "></i></button></span>
+                                <span class="quantity">0</span>
+                                <span><button class="addButton"><i class="fas fa-plus"></i></button></span>
+                                <span>0</span>
+                            </h4>
+                            
+                        </div>
+                    </div>
+                </div>
+                <% if(i < (CHAATS.length - 1)) { %>
+                <% ++i %>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 rowx2">
+                    <div class="row rowx">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+                            <img src="<%= CHAATS[i].image %>" class="fitImage">
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <h4><%= CHAATS[i].name %></h4>
+    
+                            <% if(CHAATS[i].isVegetarian == true) { %>
+                            <h4><img class="icon" src="/images/veg.jpg">Vegetarian</h4>
+                            <% }else{ %>
+                            <h4><img class="icon" src="/images/nonveg.jpg">Non-Vegetarian</h4>
+                            <% } %>
+                            <h4>Rs.<%= CHAATS[i].price%></h4>
+                            <h4>
+                                <span><button class="minusButton"><i class="fas fa-minus "></i></button></span>
+                                <span class="quantity">0</span>
+                                <span><button class="addButton"><i class="fas fa-plus "></i></button></span>
+                                <span>0</span>
+                            </h4>
+                            
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+            <% } %>
+    </div>
+    <div id="ice-cream">Chaats Lorem ipsum dolor Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae
+        illo debitis mollitia corporis, perferendis officia suscipit culpa eos, in quis dicta necessitatibus aut ipsam
+        ea sapiente sequi maiores illum quae qui exercitationem numquam sunt! Illum tempora, alias, doloremque debitis
+        sequi expedita hic excepturi, repudiandae recusandae beatae ducimus ex fugiat? Possimus aliquam quae in quasi,
+        dolore id nobis porro unde nostrum nemo quibusdam veritatis perferendis dolorum, perspiciatis cupiditate maxime
+        officiis ut sapiente voluptate tempora illum quo provident consequatur. Ducimus incidunt harum hic, sequi nisi
+        quia ipsam tempore nostrum quis architecto, illo optio minus explicabo non. Iste, porro quasi. Corrupti, magnam
+        exercitationem?sit amet consectetur adipisicing elit. Sint maiores accusantium quam atque! Repellendus error
+        dolorum rem tempore blanditiis sed a consequuntur nostrum! Quae itaque, natus exercitationem harum minus
+        recusandae nulla perspiciatis labore quas pariatur debitis minima, deserunt adipisci assumenda repudiandae quia
+        cum nemo repellendus, autem facilis nobis cupiditate quis! Dignissimos quaerat sed adipisci reiciendis aliquam
+        ratione vel eligendi vitae, maxime beatae magnam ut, officia optio modi laborum earum nam dicta consequatur
+        molestiae accusamus nisi iusto? Incidunt facilis excepturi, a fugiat, pariatur explicabo sed accusamus repellat
+        ab deleniti repellendus corrupti eveniet obcaecati ratione mollitia. Expedita cumque illum facilis laudantium
+        dignissimos.</div>
+
+        <label>Special Requests</label>
+    <input type="text" class="ipBox" name="desc" id="desc" >
+    
+</body>
+
+</html>-

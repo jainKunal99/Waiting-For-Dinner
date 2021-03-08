@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="/css/flexboxgrid.css">
+    <link rel="stylesheet" type="text/css" href="/css/checkout.css">
+    <link rel="stylesheet" type="text/css" href="/css/checkout2.css">
+    <link rel="stylesheet" type="text/css" href="/css/header.css">
+    <link rel="stylesheet" type="text/css" href="/css/landing1.css">
+
+    
+</head>
+<body>
+
+    <nav class=" navbar Navheader navbar-dark bg-dark py-0">
+        <a class="navbar-brand brandText" href="##">
+            <img class="brandICO" src="/images/logo/Final_Log-0.png">
+            <span> Waiting For Dinner?</span>
+        </a>
+        <span>
+            <form action="/logout?_method=DELETE" method="POST">
+                <button type="submit" class="btnx">LOG OUT</button>
+            </form>
+        </span>
+        <span class="justify-right"><strong>Welcome <%= obj.name%></strong></span>
+    </nav>
+    <br>
+    <br>
+    <% var timings  = ["1:00pm - 2:30pm","3:00pm - 4:30pm","5:00pm - 6:30pm","7:00pm - 8:30pm","9:00pm - 10:30pm"] %>
+    <div id="invoiceDiv">
+    <h1 align="center" ><strong>Table Reservation Detail's</strong></h1>
+        <div  id="detailsDiv">
+            <h4><%= obj.name %></h4>
+            <h4><%= obj.email %></h4>
+            <h4><%= obj.reservationId %></h4>
+            <h4><%= obj.bookedAt %></h4>
+        </div>
+        <div id="orderDiv1">
+            <!--details about date time-slot and capacity-->
+            <h5><strong>You have reserved <%= obj.tableName %></strong></h5>
+            <h5><strong>Date          :-  <%= obj.date %></strong></h5>
+            <h5><strong>Time Slot     :-  <%= timings[obj.timeSlot] %></strong></h5>
+        </div>   
+
+        <div id="message">
+            <strong>'Your table booking has been successfully completed'</strong>
+        </div>
+    </div>
+    
+</div>>
+    
+  
+</body>
+</html>

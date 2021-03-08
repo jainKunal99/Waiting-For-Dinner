@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="/images/logo/Final_Log-1.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <title>Feedback Form</title>
+    <style>
+        body {
+            background-image: linear-gradient(rgba(240, 245, 245, .6),
+                    rgba(240, 245, 245, .6)),
+                url('/images/pal.jpg');
+            background-size: cover;
+            background-position-x: center;
+
+
+
+        }
+
+        .iam {
+
+            align-content: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #mainNav {
+            display: flex;
+            word-spacing: 10%;
+
+        }
+
+        .container2 {
+            /* border: 2px solid grey; */
+            /* padding-top: 5%;
+        padding-left: 10%;
+        padding-bottom: 5%;
+        padding-right: 10%;
+        margin-left: 30%;
+        margin-right: 30%; */
+            margin-top: 2%;
+            /* margin-bottom: 20%; */
+            /* border-style:outset ; */
+            /* width: 50%; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            margin-bottom: 5vh;
+        }
+
+
+        .container2 textarea {
+            width: 90%;
+            margin-left: 7%;
+
+            border-radius: 10px;
+            border-width: 3px;
+            border-color: grey;
+        }
+
+        .inner-container {
+            border: 2px solid grey;
+            /* border-style:outset ; */
+            width: 50%;
+            padding: 5% 8% 5% 8%;
+
+            border-radius: 46px;
+            box-shadow: -5px 25px 79px rgba(127, 143, 166, 1.0), 33px -5px 25px rgba(127, 143, 166, 1.0);
+
+        }
+
+        ol {
+            /* padding-left: 10%; */
+
+            /* border: 2px solid grey;*/
+            /* padding-top: 5%;
+        padding-left: 10%;
+        padding-bottom: 5%;
+        padding-right: 10%;
+        margin-left: 30%;
+        margin-right: 30%; */
+            /* margin-top: 2%; */
+            /* margin-bottom: 20%; */
+            /* border-style:outset ;
+        width: 50%;
+        padding-left: 10%; */
+
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        li {
+            width: 100%;
+        }
+
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .one ul {
+            display: flex;
+            flex-direction: row;
+            width: 50%;
+
+
+
+        }
+
+        .one ul li {
+            list-style-type: none;
+            border: 1px solid black;
+            border-radius: 50%;
+            text-align: center;
+            margin-right: 5%;
+
+            position: relative;
+            cursor: pointer;
+        }
+
+
+        .rating {
+            position: absolute;
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <body>
+        <nav class=" navbar Navheader navbar-dark bg-dark py-0">
+            <a class="navbar-brand brandText" href="/">
+                <img class="brandICO" src="/images/logo/Final_Log-0.png">
+                <span> Waiting For Dinner?</span>
+            </a>
+            <span>
+                <form action="/logout?_method=DELETE" method="POST">
+                    <button type="submit" class="btnx">LOG OUT</button>
+                </form>
+            </span>
+            <span class="justify-right"><strong>Welcome <%= name%></strong></span>
+        </nav>
+    <form>
+        <div class="iam">
+            <img src="https://cdn1.iconfinder.com/data/icons/food-and-drink-vol-1-1/512/1-512.png" width="10%"
+                height="10%">
+            <h2 style="text-align: center;">Food served<br>Feedback Time </h2>
+
+        </div>
+
+        <div class="container2">
+            <div class="inner-container">
+
+                <ol>
+                    <li>
+                        <div>
+                            How much you are satisfied with the food quality ?
+                        </div>
+
+                        <div class="one">
+                            <ul>
+                                <li>
+                                    <input type="radio" name="first_quest" value="1" class="rating">
+                                    <span onclick="radioSelect('first_quest')">1
+                                    </span>
+                                </li>
+
+                                <li>
+
+                                    <input type="radio" name="first_quest" value="2" class="rating">
+                                    <span onclick="radioSelect('first_quest')">
+                                        2
+                                    </span>
+                                </li>
+
+                                <li>
+
+                                    <input type="radio" name="first_quest" value="3" class="rating">
+                                    <span onclick="radioSelect('first_quest')">3</span>
+                                </li>
+
+                                <li>
+
+                                    <input type="radio" name="first_quest" value="4" class="rating">
+                                    <span onclick="radioSelect('first_quest')">4</span>
+                                </li>
+
+                                <li>
+                                    <input type="radio" name="first_quest" value="5" class="rating">
+                                    <span onclick="radioSelect('first_quest')">5</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <script>
+                            function radioSelect(radioBtnName) {
+                                let radioBtnList = document.getElementsByName(radioBtnName);
+                                let index = +event.target.textContent - 1;
+                                let radioBtn = radioBtnList[index];
+
+                                radioBtn.click();
+                                console.log(event.toElement.previousElementSibling.name);
+
+                                let name = event.toElement.previousElementSibling.name;
+                                let liList = document.getElementsByName(name);
+
+                                for (i = 0; i < 5; i++) {
+                                    console.log(liList[i].parentElement)
+                                    liList[i].parentElement.style.backgroundColor = '#6c7593';
+                                }
+
+                                event.path[1].style.backgroundColor = '#0080ff';
+                            }
+
+                            function radioSelectYesNo(radioBtnName) {
+                                let radioBtnList = document.getElementsByName(radioBtnName);
+                                let index;
+
+                                if (event.target.textContent === 'Yes')
+                                    index = 0;
+                                else
+                                    index = 1;
+
+                                let radioBtn = radioBtnList[index];
+
+                                radioBtn.click();
+                                console.log(event);
+
+
+                                let name = event.toElement.previousElementSibling.name;
+                                let liList = document.getElementsByName(name);
+
+                                for (i = 0; i < liList.length; i++) {
+                                    console.log(liList[i].parentElement)
+                                    liList[i].parentElement.style.backgroundColor = 'orange';
+                                }
+
+                                event.path[1].style.backgroundColor = 'green';
+                            }
+                        </script>
+
+
+                    </li>
+
+                    <li>
+                        <div>
+                            How much you are satisfied with our order accuracy ?
+                        </div>
+                        <div class="one">
+                            <ul>
+                                <li>
+                                    <input type="radio" name="second_quest" value="1" class="rating">
+                                    <span onclick="radioSelect('second_quest')">1</span>
+                                </li>
+                                <li>
+                                    <input type="radio" name="second_quest" value="2" class="rating">
+                                    <span onclick="radioSelect('second_quest')">2</span>
+                                </li>
+                                <li>
+                                    <input type="radio" name="second_quest" value="3" class="rating">
+                                    <span onclick="radioSelect('second_quest')">3</span>
+                                </li>
+                                <li>
+                                    <input type="radio" name="second_quest" value="4" class="rating">
+                                    <span onclick="radioSelect('second_quest')">4</span>
+                                </li>
+                                <li>
+                                    <input type="radio" name="second_quest" value="5" class="rating">
+                                    <span onclick="radioSelect('second_quest')">5</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+
+                    <li>
+
+                        <div>
+                            Are the options available for food items sufficient for you ?
+                        </div>
+
+                        <div class="one">
+                            <div>
+                                <ul>
+                                    <li>
+                                        <input type="radio" name="third_quest" value="1" class="rating">
+                                        <span onclick="radioSelectYesNo('third_quest')">Y</span>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="third_quest" value="2" class="rating">
+                                        <span onclick="radioSelectYesNo('third_quest')">N</span>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+
+
+                    <li>
+                        <div>
+
+                            How much you are satisfied with the our staff service ?
+                        </div>
+
+                        <div class="one">
+                            <ul>
+                                <li>
+                                    <input type="radio" name="fourth_quest" value="1" class="rating">
+                                    <span onclick="radioSelect('fourth_quest')">1</span>
+                                </li>
+                                <li>
+                                    <input type="radio" name="fourth_quest" value="2" class="rating">
+                                    <span onclick="radioSelect('fourth_quest')">2</span>
+                                </li>
+                                <li>
+                                    <input type="radio" name="fourth_quest" value="3" class="rating">
+                                    <span onclick="radioSelect('fourth_quest')">3</span>
+                                </li>
+                                <li>
+                                    <input type="radio" name="fourth_quest" value="4" class="rating">
+                                    <span onclick="radioSelect('fourth_quest')">4</span>
+                                </li>
+                                <li>
+                                    <input type="radio" name="fourth_quest" value="5" class="rating">
+                                    <span onclick="radioSelect('fourth_quest')">5</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+
+                    <li>
+                        <div>
+
+                            How much are you satisfied with the restaurant environment ?
+                        </div>
+
+                        <div class="one">
+                            <ul>
+                                <li>
+                                    <input type="radio" name="fifth_quest" value="1" class="rating">
+                                    <span onclick="radioSelect('fifth_quest')">1</span>
+                                </li>
+                                <li>
+                                    <input type="radio" name="fifth_quest" value="2" class="rating">
+                                    <span onclick="radioSelect('fifth_quest')">2</span>
+                                </li>
+                                <li>
+                                    <input type="radio" name="fifth_quest" value="3" class="rating">
+                                    <span onclick="radioSelect('fifth_quest')">3</span>
+                                </li>
+                                <li>
+                                    <input type="radio" name="fifth_quest" value="4" class="rating">
+                                    <span onclick="radioSelect('fifth_quest')">4</span>
+                                </li>
+                                <li>
+                                    <input type="radio" name="fifth_quest" value="5" class="rating">
+                                    <span onclick="radioSelect('fifth_quest')">5</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <script>
+
+                    </script>
+
+
+                    <li>
+                        <div>
+                            How much you enjoyed our service ?
+                        </div>
+                        <div class="one">
+                            <ul>
+                                <li>
+                                    <input type="radio" name="sixth_quest" value="1" class="rating">
+                                    <span onclick="radioSelect('sixth_quest')">1</span>
+                                </li>
+                                <li>
+                                    <input type="radio" name="sixth_quest" value="2" class="rating">
+                                    <span>2</span>
+                                </li>
+                                <li>
+                                    <input type="radio" name="sixth_quest" value="3" class="rating">
+                                    <span onclick="radioSelect('sixth_quest')">3</span>
+                                </li>
+                                <li>
+                                    <input type="radio" name="sixth_quest" value="4" class="rating">
+                                    <span onclick="radioSelect('sixth_quest')">4</span>
+                                </li>
+                                <li>
+                                    <input type="radio" name="sixth_quest" value="5" class="rating">
+                                    <span onclick="radioSelect('sixth_quest')">5</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div>
+                            How much are you satisfied with our website ?
+                        </div>
+                        <div class="one">
+                            <ul>
+                                <li>
+                                    <input type="radio" name="seventh_quest" value="1" class="rating">
+                                    <span onclick="radioSelect('seventh_quest')">1</span>
+                                </li>
+                                <li>
+                                    <input type="radio" name="seventh_quest" value="2" class="rating">
+                                    <span onclick="radioSelect('seventh_quest')">2</span>
+                                </li>
+                                <li>
+                                    <input type="radio" name="seventh_quest" value="3" class="rating">
+                                    <span onclick="radioSelect('seventh_quest')">3</span>
+                                </li>
+                                <li>
+                                    <input type="radio" name="seventh_quest" value="4" class="rating">
+                                    <span onclick="radioSelect('seventh_quest')">4</span>
+                                </li>
+                                <li>
+                                    <input type="radio" name="seventh_quest" value="5" class="rating">
+                                    <span onclick="radioSelect('seventh_quest')">5</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ol>
+                <label>Please mention your further suggestions and help us to serve you better.</label>
+
+
+
+                <textarea name="" id="" cols="30" rows="5">
+                </textarea>
+
+                <div class="btn">
+                    <button class="btnx">Submit</button>
+                </div>
+
+
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>
